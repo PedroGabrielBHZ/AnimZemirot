@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <title>Anim Zemirot</title>
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <script src="../static/js/htmx.min.js"></script>
+  </head>
+  <body hx-boost="true">
+    <main>
+      <div class="container">
+        <h1>Anim Zemirot</h1>
+      </div>
+      <br />
+      <br />
+      {% block content %}{% endblock %}
+    </main>
+    <footer
+      class="bg-body-tertiary text-center"
+      style="position: fixed; bottom: 0; width: 100%"
+    >
+      <div class="container">
+        <p>&copy; 2024</p>
+      </div>
+    </footer>
+  </body>
+</html>

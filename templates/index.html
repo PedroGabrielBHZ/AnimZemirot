@@ -1,0 +1,42 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="container">
+  <form action="/songs" method="get" class="tool-bar">
+    <label for="search">Search Term</label>
+    <input
+      id="search"
+      type="search"
+      name="q"
+      value="{{ request.args.get('q') or '' }}"
+      hx-get="/songs"
+      hx-trigger="search, keyup delay:200ms changed"
+      hx-target="tbody"
+      hx-push-url="true"
+      hx-indicator="#spinner"
+    />
+    <img
+      style="height: 20px"
+      id="spinner"
+      class="htmx-indicator"
+      src="/static/img/spinning-circles.svg"
+    />
+    <input type="submit" value="Search" />
+  </form>
+</div>
+<br />
+<br />
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name Transliterated</th>
+        <th scope="col">Hebrew Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'rows.html' %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
